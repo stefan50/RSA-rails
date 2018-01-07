@@ -4,7 +4,7 @@ class RsasController < ApplicationController
 	end
 	def create
 		@RSA = Rsa.new(params[:n],params[:e],params[:d])
-		@RSA.save
-		@RSA.find(params[:id])
+		#@RSA.save
+		#@RSA.find(params[:id])
 	end
 end
