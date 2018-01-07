@@ -1,4 +1,5 @@
 class RsasController < ApplicationController
+	protect_from_forgery except :create
 	def index
 	end
 	def create
