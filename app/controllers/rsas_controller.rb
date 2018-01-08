@@ -10,7 +10,16 @@ class RsasController < ApplicationController
 			@RSA = Rsa.new(n: parameters[0], e: parameters[1], d: parameters[2])  
 		end
 		@RSA.save
-		render plain: @RSA.id
+		redirect_to @RSA
+	end
+	
+	def show
+		@key = Rsa.find(params[:id])
+		par = Hash.new
+		par[:n] = @key.n
+		par[:e] = @key.e
+		par[:d] = @key.d
+		render json: par
 	end
 
 private
