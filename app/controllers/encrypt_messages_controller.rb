@@ -5,7 +5,8 @@ class EncryptMessagesController < ApplicationController
 		@key = Rsa.find(id_mess)
 		@encrypted = CreateEncrypted.new(encrypted: encrypt(params[:message], @key), id_message: id_mess) 
 		@encrypted.save
-		redirect_to :action => "show", :id_message => @encrypted[:id_message], :id => @encrypted[:id] and return 0
+		#redirect_to :action => "show", :id_message => @encrypted[:id_message], :id => @encrypted[:id] and return 0
+		render plain: @encrypted.encrypted
 	end	
 	
 	def show
