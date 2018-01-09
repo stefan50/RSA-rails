@@ -10,7 +10,7 @@ class RsasController < ApplicationController
 			@RSA = Rsa.new(n: parameters[0], e: parameters[1], d: parameters[2])  
 		end
 		@RSA.save
-		redirect_to @RSA
+		render plain: @RSA.id
 	end
 	
 	def show
